@@ -2,8 +2,14 @@
   "name": "react-custom-hooks-kit",
   "version": "1.0.0",
   "description": "React Custom Hooks with TypeScript offers essential, type-safe hooks crafted for smoother React development.",
-  "homepage": "https://github.com/kobir1989/validator-library",
-  "repository": "https://github.com/kobir1989/validator-library",
+  "homepage": "https://github.com/kobir1989/react-custom-hooks-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kobir1989/react-custom-hooks-kit"
+  },
+  "bugs": {
+    "url": "https://github.com/kobir1989/react-custom-hooks-kit/issue"
+  },
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -16,8 +22,11 @@
     "prepare": "husky install"
   },
   "keywords": [
+    "react",
     "custom-hooks",
-    "react-hooks"
+    "react-hooks",
+    "hooks",
+    "npm"
   ],
   "author": "Kabir Hossain",
   "license": "MIT",
