@@ -1,0 +1,56 @@
+{
+  "name": "react-custom-hooks-kit",
+  "version": "1.0.0",
+  "description": "React Custom Hooks with TypeScript offers essential, type-safe hooks crafted for smoother React development.",
+  "homepage": "https://github.com/kobir1989/validator-library",
+  "repository": "https://github.com/kobir1989/validator-library",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test",
+    "build:dev": "rollup -c --environment NODE_ENV:development",
+    "build": "rollup -c  --environment NODE_ENV:production",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prettier": "prettier --write .",
+    "fix-all": "npm run lint -- --fix && git add -A . && npm run prettier",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "custom-hooks",
+    "react-hooks"
+  ],
+  "author": "Kabir Hossain",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.23.6",
+    "@babel/preset-react": "^7.23.3",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/react": "^18.2.45",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "husky": "^8.0.0",
+    "prettier": "^3.1.1",
+    "rollup": "^4.9.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
