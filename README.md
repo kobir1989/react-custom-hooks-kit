@@ -15,26 +15,38 @@ npm install react-custom-hooks-kit
 ### PARAMETERS
 | Name | Type | Description                                                                                                                                                                                                                         
 | -----------|------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| url | string | The URL to fetch data from.
+| url | string | The URL from which data is to be fetched.
 
 ### RETURNS
 
 | Name | Type | Description                                                                                                                                                                                                                         
 | --------|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| data | array | data containing the fetched data.
-| error | object | error object if any error occurred during fetching or null.
+| data | T[] | The response data fetched from the provided URL.    
+| error | object | Represents any error encountered during data fetching. 
 | isLoading | boolean | Loading State
-| isError | boolean | if any error occurred isErorr will be true.
+| isError | boolean | Indicates whether an error occurred during the data fetching.
 
 ```javascript
 import {useFetch} from 'react-custom-hooks-kit'
 
 const Component = ()=> {
-const {data, error, isLoading, isError} = useFetch('exemple url')
-return (
-<div> ...do something </div>
-)
-}
+ const { data, isLoading, error, isError } = useFetch('https://api.example.com/data');
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error occurred: {error?.message}</div>;
+  }
+
+  return (
+    <div>
+      {data.map((item, index) => (
+        <p key={index}>{item}</p>
+      ))}
+    </div>
+  )};
 ```
 
 ## 2. useLocalStorage()
@@ -43,22 +55,31 @@ return (
 ### PARAMETERS
 | Name | Type | Description                                                                                                                                                                                                                         
 | -----------|------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key | string | The key used to access the local storage value.
-| initialValue | any | The value that will be saved in the localstorage
+| key | string | The key under which the value will be stored in localStorage.
+| initialValue | T | The initial value to be stored in localStorage.  
 
 ### RETURNS
 
 | Name | Type | Description                                                                                                                                                                                                                         
 | --------|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| savedValue | any | The current state of the value stored in local storage.
-| setSavedValue | function | A function to set the state of the value in the local storage. This function accepts a new value.
+| savedValue | T | The current state of the value stored in local storage.
+| setSavedValue | function |  A function to set the state of the stored value in localStorage. 
  
 ```javascript
 import {useLocalStorage} from 'react-custom-hooks-kit'
 
 const Component = ()=> {
-const [savedValue, setSavedValue] = useLocalStorage('key', 'initialValue')
-// ...do something with the savedValue
+ const [savedValue, setSavedValue] = useLocalStorage('myKey', 'defaultValue');
+
+  const handleInputChange = (e) => {
+    setSavedValue(e.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" value={savedValue} onChange={handleInputChange} />
+    </div>
+  );
 }
 ```
 
