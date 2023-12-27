@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
-type GenericObject = Record<string, string | number | boolean>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type GenericObject = Record<string, any>
 type ChangeEventType = React.ChangeEvent<HTMLInputElement>
 type SubmitEventType = React.FormEvent<HTMLFormElement>
 
@@ -33,18 +34,11 @@ export const useForm = (
   // onChange Handler
   const onChangeHandler = (e: ChangeEventType): void => {
     const { value, name, type, checked } = e.target
-    if (type === 'checked') {
+    if (type === 'checkbox') {
       setFormInputs(prev => ({
         ...prev,
         [name]: checked
       }))
-    } else if (type === 'radio') {
-      if (checked) {
-        setFormInputs(prev => ({
-          ...prev,
-          [name]: value
-        }))
-      }
     } else {
       setFormInputs(prev => ({
         ...prev,
