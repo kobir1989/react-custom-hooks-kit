@@ -7,6 +7,7 @@ import useScroll from './hooks/useScroll'
 import useToggle from './hooks/useToggle'
 import useClickAway from './hooks/useClickAway'
 import useMousePosition from './hooks/useMousePosition'
+import useCountDown from './hooks/useCountDown'
 
 export {
   useFetch,
@@ -17,5 +18,6 @@ export {
   useScroll,
   useToggle,
   useClickAway,
-  useMousePosition
+  useMousePosition,
+  useCountDown
 }
