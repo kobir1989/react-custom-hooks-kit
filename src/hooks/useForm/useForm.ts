@@ -8,7 +8,7 @@ type SubmitEventType = React.FormEvent<HTMLFormElement>
 interface UseFormReturnTypes {
   onChangeHandler(_e: ChangeEventType): void
   onSubmitHandler(_e: SubmitEventType): void
-  initialInputValue: GenericObject
+  formInputs: GenericObject
   errors: GenericObject
 }
 
@@ -18,7 +18,7 @@ interface UseFormReturnTypes {
  * @param submitCallback
  * @returns { onChangeHandler - function}
  * @returns { onSubmitHandler - function}
- * @returns { initialInputValue - object}
+ * @returns { formInputs - object}
  * @returns { errors - object}
  */
 
@@ -27,17 +27,31 @@ export const useForm = (
   submitCallback: (_values: GenericObject) => void,
   inputValidator: (_values: GenericObject) => GenericObject
 ): UseFormReturnTypes => {
-  const [inputValues, setInitialInputValue] =
-    useState<GenericObject>(initialInputValue)
+  const [formInputs, setFormInputs] = useState<GenericObject>(initialInputValue)
   const [errors, setErrors] = useState<GenericObject>({})
 
   // onChange Handler
   const onChangeHandler = (e: ChangeEventType): void => {
-    const { value, name } = e.target
-    setInitialInputValue(prev => ({
-      ...prev,
-      [name]: value
-    }))
+    const { value, name, type, checked } = e.target
+    if (type === 'checked') {
+      setFormInputs(prev => ({
+        ...prev,
+        [name]: checked
+      }))
+    } else if (type === 'radio') {
+      if (checked) {
+        setFormInputs(prev => ({
+          ...prev,
+          [name]: value
+        }))
+      }
+    } else {
+      setFormInputs(prev => ({
+        ...prev,
+        [name]: value
+      }))
+    }
+
     // remove error message when user starts typing.
     if (value !== '') {
       setErrors(prev => ({
@@ -51,22 +65,22 @@ export const useForm = (
   const onSubmitHandler = (e: SubmitEventType): void => {
     e.preventDefault()
     // validate input (check if valdate object has any key value)
-    const validate = inputValidator(inputValues)
+    const validate = inputValidator(formInputs)
     if (Object.values(validate).length > 0) {
       setErrors(validate)
       return
     }
     // invoke submit callback if there is no error.
-    submitCallback(inputValues)
+    submitCallback(formInputs)
 
     // reset inputValues state after successfull submit
-    setInitialInputValue(initialInputValue)
+    setFormInputs(initialInputValue)
   }
 
   return {
     onChangeHandler,
     onSubmitHandler,
-    initialInputValue,
+    formInputs,
     errors
   }
 }
