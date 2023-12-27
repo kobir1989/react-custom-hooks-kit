@@ -6,6 +6,7 @@ import useWindowSize from './hooks/useWindowSize'
 import useScroll from './hooks/useScroll'
 import useToggle from './hooks/useToggle'
 import useClickAway from './hooks/useClickAway'
+import useMousePosition from './hooks/useMousePosition'
 
 export {
   useFetch,
@@ -15,5 +16,6 @@ export {
   useWindowSize,
   useScroll,
   useToggle,
-  useClickAway
+  useClickAway,
+  useMousePosition
 }
