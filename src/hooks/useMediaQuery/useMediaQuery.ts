@@ -10,7 +10,7 @@ export const useMediaQuery = (query: string): boolean => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const mediaQuery = window.matchMedia(query)
+      const mediaQuery = window.matchMedia(`only screen and (${query})`)
 
       const mediaQueryListener = (event: MediaQueryListEvent): void => {
         setMatches(event.matches)
