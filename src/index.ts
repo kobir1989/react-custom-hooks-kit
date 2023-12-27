@@ -4,6 +4,8 @@ import useLocalStorage from './hooks/useLocalStorage'
 import useMediaQuery from './hooks/useMediaQuery'
 import useWindowSize from './hooks/useWindowSize'
 import useScroll from './hooks/useScroll'
+import useToggle from './hooks/useToggle'
+import useClickAway from './hooks/useClickAway'
 
 export {
   useFetch,
@@ -11,5 +13,7 @@ export {
   useLocalStorage,
   useMediaQuery,
   useWindowSize,
-  useScroll
+  useScroll,
+  useToggle,
+  useClickAway
 }

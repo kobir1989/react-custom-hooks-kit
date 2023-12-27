@@ -1,2 +1,12 @@
 src
 rollup.config.js
+.husky
+.vscode
+.eslintrc
+.eslintignore
+.gitignore
+.nvmrc
+.prettierrc
+.prettierignore
+jest.config.js
+tsconfig.json
