@@ -1,30 +1,24 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // structure of mouse position state
 interface MousePosition {
   x: number
   y: number
 }
-// return type of the hook
-type UseMousePositionReturnType = [
-  MousePosition,
-  React.MutableRefObject<HTMLElement | null>
-]
 
 /**
  * @useMousePosition - hook returns the current mouse position and a reference to an HTML element.
- * @returns {currentMousePosition}
- * @returns {elementRef - ref}
+ * @returns {currentMousePosition} - number
  */
 
-export const useMousePosition = (): UseMousePositionReturnType => {
+export const useMousePosition = (
+  elementRef: React.MutableRefObject<HTMLElement | null>
+): MousePosition => {
   const [currentMousePosition, setCurrentMousePosition] =
     useState<MousePosition>({
       x: 0,
       y: 0
     })
-
-  const elementRef = useRef<HTMLElement | null>(null)
 
   // update mouse position handler
   const updateMousePosition = (e: MouseEvent): void => {
@@ -49,7 +43,7 @@ export const useMousePosition = (): UseMousePositionReturnType => {
     return () => {
       if (element) element.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [])
+  }, [elementRef.current])
 
-  return [currentMousePosition, elementRef]
+  return currentMousePosition
 }
