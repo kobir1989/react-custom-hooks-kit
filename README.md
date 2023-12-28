@@ -354,26 +354,26 @@ const Component = () => {
 
 ### PARAMETERS
 
-| Name  | Type   | Description |
-| ----- | ------ | ----------- | -------------------------------------------------- |
-| count | number | 50          | The initial count value for the countdown.         |
-| delay | number | 100         | The delay (in milliseconds) between count updates. |
+| Name    | Type   | Description                                        | 
+| ------- | -------| ---------------------------------------------------|
+| count   | number | The initial count value for the countdown.         |
+| delay   | number | The delay (in milliseconds) between count updates. |
 
 ### RETURNS
 
 | Name      | Type   | Description                                          |
 | --------- | ------ | ---------------------------------------------------- |
-| countFrom | number | Represents the current count value of the countdown. |
+| currentCount | number | Represents the current count value of the countdown. |
 
 ```javascript
 import { useCountDown } from 'react-custom-hooks-kit'
 
 const Component = () => {
-  const countFrom = useCountDown(10, 200) // Start countdown from 10 with a delay of 200 ms.
+  const countDown = useCountDown(10, 200) // Start countdown from 10 with a delay of 200 ms.
 
   return (
     <div>
-      <p>Countdown: {countFrom}</p>
+      <p>Countdown: {countDown}</p>
     </div>
   )
 }
