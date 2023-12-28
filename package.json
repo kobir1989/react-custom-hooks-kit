@@ -26,7 +26,16 @@
     "custom-hooks",
     "react-hooks",
     "hooks",
-    "npm"
+    "npm",
+    "useFetch",
+    "useForm",
+    "useScroll",
+    "useWindow",
+    "useMediaQuery",
+    "useClickAway",
+    "useMouse",
+    "useToggle",
+    "useCountDown"
   ],
   "author": "Kabir Hossain",
   "license": "MIT",
