@@ -338,19 +338,27 @@ const WindowSizeComponent = () => {
 import { useClickAway } from 'react-custom-hooks-kit'
 
 const Component = () => {
-  const clickRef = useRef(null)
+   const clickRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleClickAway = () => {
-    // Logic to handle click away
+    setIsOpen(false)
   }
-
   const { enable, disable } = useClickAway(clickRef, handleClickAway)
 
   return (
-    <div ref={clickRef}>
-      <button onClick={enable}>Enable Click Away</button>
-      <button onClick={disable}>Disable Click Away</button>
-    </div>
+    <section ref={clickRef}>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      {isOpen && (
+        <div>
+          <div>
+            <button onClick={enable}>Enable</button>
+            <button onClick={disable}>Disable</button>
+          </div>
+          <h2>Modal</h2>
+        </div>
+      )}
+    </section>
   )
 }
 ```
