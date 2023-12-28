@@ -239,7 +239,7 @@ const Component = () => {
 import { useMediaQuery } from 'react-custom-hooks-kit'
 
 const Component = () => {
-   const isMobile = useMediaQuery('(max-width: 568px)')
+  const isMobile = useMediaQuery('(max-width: 568px)')
   const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)')
   const isDesktop = useMediaQuery('(min-width: 1025px)')
 
@@ -259,9 +259,9 @@ const Component = () => {
 
 ### PARAMETERS
 
-| Name  | Type   | Description                                                                |
-| ----- | ------ | -------------------------------------------------------------------------- |
-| ref | MutableRefObject<HTMLElement> | Reference to the target HTML element.    
+| Name | Type                          | Description                           |
+| ---- | ----------------------------- | ------------------------------------- |
+| ref  | MutableRefObject<HTMLElement> | Reference to the target HTML element. |
 
 ### RETURNS
 
@@ -271,7 +271,7 @@ const Component = () => {
 
 ```javascript
 import { useMousePosition } from 'react-custom-hooks-kit'
-import {useRef} from 'react'
+import { useRef } from 'react'
 
 const Component = () => {
   const elementRef = useRef(null)
@@ -338,7 +338,7 @@ const WindowSizeComponent = () => {
 import { useClickAway } from 'react-custom-hooks-kit'
 
 const Component = () => {
-   const clickRef = useRef(null)
+  const clickRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClickAway = () => {

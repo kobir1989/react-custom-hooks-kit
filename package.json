@@ -8,7 +8,7 @@
     "url": "https://github.com/kobir1989/react-custom-hooks-kit"
   },
   "bugs": {
-    "url": "https://github.com/kobir1989/react-custom-hooks-kit/issue"
+    "url": "https://github.com/kobir1989/react-custom-hooks-kit/issues"
   },
   "main": "dist/index.js",
   "type": "module",
