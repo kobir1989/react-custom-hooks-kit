@@ -255,20 +255,27 @@ const Component = () => {
 
 ## 7. useMousePosition()
 
-`useMousePosition` custom React hook designed to provide real-time tracking of the mouse position within a specified HTML element. This hook returns the current mouse coordinates (x and y) and a reference to the targeted HTML element, allowing for dynamic interactions based on mouse movements.
+`useMousePosition` custom React hook designed to provide real-time tracking of the mouse position within a specified HTML element. This hook returns the current mouse coordinates (x and y), allowing for dynamic interactions based on mouse movements.
+
+### PARAMETERS
+
+| Name  | Type   | Description                                                                |
+| ----- | ------ | -------------------------------------------------------------------------- |
+| ref | MutableRefObject<HTMLElement> | Reference to the target HTML element.    
 
 ### RETURNS
 
 | Name                 | Type                                           | Description                                                   |
 | -------------------- | ---------------------------------------------- | ------------------------------------------------------------- |
 | currentMousePosition | MousePosition object: { x: number, y: number } | Represents the current mouse coordinates (x and y positions). |
-| elementRef           | MutableRefObject                               | A reference (ref) to an HTML element tracked by the hook.     |
 
 ```javascript
 import { useMousePosition } from 'react-custom-hooks-kit'
+import {useRef} from 'react'
 
 const Component = () => {
-  const [currentMousePosition, elementRef] = useMousePosition()
+  const elementRef = useRef(null)
+  const mouse = useMousePosition(elementRef)
 
   return (
     <section
@@ -276,7 +283,7 @@ const Component = () => {
       style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }}
     >
       <p>
-        X: {currentMousePosition.x}, Y: {currentMousePosition.y}
+        X: {mouse.x}, Y: {mouse.y}
       </p>
     </section>
   )
