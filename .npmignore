@@ -10,3 +10,4 @@ rollup.config.js
 .prettierignore
 jest.config.js
 tsconfig.json
+react-custom-hooks-kit*.tgz
