@@ -354,15 +354,15 @@ const Component = () => {
 
 ### PARAMETERS
 
-| Name    | Type   | Description                                        | 
-| ------- | -------| ---------------------------------------------------|
-| count   | number | The initial count value for the countdown.         |
-| delay   | number | The delay (in milliseconds) between count updates. |
+| Name  | Type   | Description                                        |
+| ----- | ------ | -------------------------------------------------- |
+| count | number | The initial count value for the countdown.         |
+| delay | number | The delay (in milliseconds) between count updates. |
 
 ### RETURNS
 
-| Name      | Type   | Description                                          |
-| --------- | ------ | ---------------------------------------------------- |
+| Name         | Type   | Description                                          |
+| ------------ | ------ | ---------------------------------------------------- |
 | currentCount | number | Represents the current count value of the countdown. |
 
 ```javascript
