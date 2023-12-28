@@ -239,9 +239,9 @@ const Component = () => {
 import { useMediaQuery } from 'react-custom-hooks-kit'
 
 const Component = () => {
-  const isMobile = useMediaQuery('max-width: 768px')
-  const isTablet = useMediaQuery('min-width: 769px')
-  const isDesktop = useMediaQuery('min-width: 1025px')
+   const isMobile = useMediaQuery('(max-width: 568px)')
+  const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)')
+  const isDesktop = useMediaQuery('(min-width: 1025px)')
 
   return (
     <div>
@@ -255,20 +255,27 @@ const Component = () => {
 
 ## 7. useMousePosition()
 
-`useMousePosition` custom React hook designed to provide real-time tracking of the mouse position within a specified HTML element. This hook returns the current mouse coordinates (x and y) and a reference to the targeted HTML element, allowing for dynamic interactions based on mouse movements.
+`useMousePosition` custom React hook designed to provide real-time tracking of the mouse position within a specified HTML element. This hook returns the current mouse coordinates (x and y), allowing for dynamic interactions based on mouse movements.
+
+### PARAMETERS
+
+| Name  | Type   | Description                                                                |
+| ----- | ------ | -------------------------------------------------------------------------- |
+| ref | MutableRefObject<HTMLElement> | Reference to the target HTML element.    
 
 ### RETURNS
 
 | Name                 | Type                                           | Description                                                   |
 | -------------------- | ---------------------------------------------- | ------------------------------------------------------------- |
 | currentMousePosition | MousePosition object: { x: number, y: number } | Represents the current mouse coordinates (x and y positions). |
-| elementRef           | MutableRefObject                               | A reference (ref) to an HTML element tracked by the hook.     |
 
 ```javascript
 import { useMousePosition } from 'react-custom-hooks-kit'
+import {useRef} from 'react'
 
 const Component = () => {
-  const [currentMousePosition, elementRef] = useMousePosition()
+  const elementRef = useRef(null)
+  const mouse = useMousePosition(elementRef)
 
   return (
     <section
@@ -276,7 +283,7 @@ const Component = () => {
       style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }}
     >
       <p>
-        X: {currentMousePosition.x}, Y: {currentMousePosition.y}
+        X: {mouse.x}, Y: {mouse.y}
       </p>
     </section>
   )
@@ -331,19 +338,27 @@ const WindowSizeComponent = () => {
 import { useClickAway } from 'react-custom-hooks-kit'
 
 const Component = () => {
-  const clickRef = useRef(null)
+   const clickRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleClickAway = () => {
-    // Logic to handle click away
+    setIsOpen(false)
   }
-
   const { enable, disable } = useClickAway(clickRef, handleClickAway)
 
   return (
-    <div ref={clickRef}>
-      <button onClick={enable}>Enable Click Away</button>
-      <button onClick={disable}>Disable Click Away</button>
-    </div>
+    <section ref={clickRef}>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      {isOpen && (
+        <div>
+          <div>
+            <button onClick={enable}>Enable</button>
+            <button onClick={disable}>Disable</button>
+          </div>
+          <h2>Modal</h2>
+        </div>
+      )}
+    </section>
   )
 }
 ```
