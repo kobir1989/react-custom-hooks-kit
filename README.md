@@ -239,9 +239,9 @@ const Component = () => {
 import { useMediaQuery } from 'react-custom-hooks-kit'
 
 const Component = () => {
-  const isMobile = useMediaQuery('max-width: 768px')
-  const isTablet = useMediaQuery('min-width: 769px')
-  const isDesktop = useMediaQuery('min-width: 1025px')
+   const isMobile = useMediaQuery('(max-width: 568px)')
+  const isTablet = useMediaQuery('(min-width: 769px) and (max-width: 1024px)')
+  const isDesktop = useMediaQuery('(min-width: 1025px)')
 
   return (
     <div>
