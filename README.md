@@ -23,19 +23,20 @@ npm install react-custom-hooks-kit
 
 ### Table of Contents
 
-| No. | Hooks                                     |
-| --- | ----------------------------------------- |
-|     |                                           |
-| 1   | **[useFetch](#usefetch)**                 |
-| 2   | **[useLocalStorage](#useLocalStorage)**   |
-| 3   | **[useToggle](#useToggle)**               |
-| 4   | **[useForm](#useForm)**                   |
-| 5   | **[useScroll](#useScroll)**               |
-| 6   | **[useMediaQuery](#useMediaQuery)**       |
-| 7   | **[useMousePosition](#useMousePosition)** |
-| 8   | **[useWindowSize](#useWindowSize)**       |
-| 9   | **[useClickAway](#useClickAway)**         |
-| 10  | **[useCountDown](#useCountDown)**         |
+| No. | Hooks                                                   |
+| --- | ------------------------------------------------------- |
+|     |                                                         |
+| 1   | **[useFetch](#usefetch)**                               |
+| 2   | **[useLocalStorage](#useLocalStorage)**                 |
+| 3   | **[useToggle](#useToggle)**                             |
+| 4   | **[useForm](#useForm)**                                 |
+| 5   | **[useScroll](#useScroll)**                             |
+| 6   | **[useMediaQuery](#useMediaQuery)**                     |
+| 7   | **[useMousePosition](#useMousePosition)**               |
+| 8   | **[useWindowSize](#useWindowSize)**                     |
+| 9   | **[useClickAway](#useClickAway)**                       |
+| 10  | **[useCountDown](#useCountDown)**                       |
+| 11  | **[useIntersectionObserver](#useIntersectionObserver)** |
 
 1. ## useFetch
 <div id="useFetch"></div>
@@ -55,6 +56,8 @@ npm install react-custom-hooks-kit
 | error     | object  | Represents any error encountered during data fetching.        |
 | isLoading | boolean | Loading State                                                 |
 | isError   | boolean | Indicates whether an error occurred during the data fetching. |
+
+### Example Code:
 
 ```javascript
 import { useFetch } from 'react-custom-hooks-kit'
@@ -101,6 +104,8 @@ const Component = () => {
 | savedValue    | T        | The current state of the value stored in local storage.          |
 | setSavedValue | function | A function to set the state of the stored value in localStorage. |
 
+### Example Code:
+
 ```javascript
 import { useLocalStorage } from 'react-custom-hooks-kit'
 
@@ -135,6 +140,8 @@ const Component = () => {
 | -------- | -------- | ---------------------------------- |
 | isOn     | boolean  | Current state                      |
 | onToggle | function | Function to toggle between states. |
+
+### Example Code:
 
 ```javascript
 import { useToggle } from 'react-custom-hooks-kit'
@@ -171,6 +178,8 @@ const ToggleButton = () => {
 | onSubmitHandler | function | Function to handle form submissions.                                                                      |
 | formInputs      | object   | Object containing form input values that correspond to their respective field names.                      |
 | errors          | object   | Object containing validation error messages corresponding to the fields validated through inputValidator. |
+
+### Example Code:
 
 ```javascript
 import { useForm } from 'react-custom-hooks-kit'
@@ -231,6 +240,8 @@ const Form = () => {
 | --------------- | ------ | ----------------------- |
 | currentPosition | number | Current scroll position |
 
+### Example Code:
+
 ```javascript
 import { useScroll } from 'react-custom-hooks-kit'
 
@@ -262,6 +273,8 @@ const Component = () => {
 | Name    | Type    | Description                                                |
 | ------- | ------- | ---------------------------------------------------------- |
 | matches | boolean | Represents whether the current viewport matches the query. |
+
+### Example Code:
 
 ```javascript
 import { useMediaQuery } from 'react-custom-hooks-kit'
@@ -297,6 +310,8 @@ const Component = () => {
 | -------------------- | ---------------------------------------------- | ------------------------------------------------------------- |
 | currentMousePosition | MousePosition object: { x: number, y: number } | Represents the current mouse coordinates (x and y positions). |
 
+### Example Code:
+
 ```javascript
 import { useMousePosition } from 'react-custom-hooks-kit'
 import { useRef } from 'react'
@@ -328,6 +343,8 @@ const Component = () => {
 | ------ | ------ | ---------------------------------------------------- |
 | width  | number | Represents the current width of the browser window.  |
 | height | number | Represents the current height of the browser window. |
+
+### Example Code:
 
 ```javascript
 import { useWindowSize } from 'react-custom-hooks-kit'
@@ -361,6 +378,8 @@ const WindowSizeComponent = () => {
 | ------- | -------- | --------------------------------- |
 | enable  | function | Enables the click-away listener.  |
 | disable | function | Disables the click-away listener. |
+
+### Example Code:
 
 ```javascript
 import { useClickAway } from 'react-custom-hooks-kit'
@@ -408,6 +427,8 @@ const Component = () => {
 | ------------ | ------ | ---------------------------------------------------- |
 | currentCount | number | Represents the current count value of the countdown. |
 
+### Example Code:
+
 ```javascript
 import { useCountDown } from 'react-custom-hooks-kit'
 
@@ -422,36 +443,72 @@ const Component = () => {
 }
 ```
 
-10. ## useIntersectionObserver
+11. ## useIntersectionObserver
 <div id="useIntersectionObserver"></div>
 
 `useIntersectionObserver` custom Hook that determines if a component is visible on your screen. It relies on the IntersectionObserver API, which is already available in your browser. This hook comes in handy for tasks such as loading images when they come into view, creating endless scrolling on pages, or triggering animations.
 
 ### PARAMETERS
 
-| Name    | Type             | Description                                                        |
-| ------- | ---------------- | ------------------------------------------------------------------ |
-| ref     | MutableRefObject |                                                                    |
-| options | object           | option object such as threshold, root, rootMargin, stopOnceVisible |
+| Name                    | Type                         | Description                                                     |
+| ----------------------- | ---------------------------- | --------------------------------------------------------------- |
+| ref                     | MutableRefObject             | Reference to the observed HTML element.                         |
+| options                 | object                       | Intersection Observer configuration options.                    |
+| options.threshold       | number (\*default 0.3)       | The ratio of intersection needed to trigger the callback.       |
+| options.root            | HTMLElement (\*default null) | The element used as the viewport for checking intersection.     |
+| options.rootMargin      | string (\*default "0%")      | Margin around the root element to adjust the intersection area. |
+| options.stopOnceVisible | boolean (\*default false)    | Stops observing once the element becomes visible.               |
 
 ### RETURNS
 
-| Name  | Type   | Description                                                                                                |
-| ----- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| entry | object | object containing information about the intersection. This object is similar to IntersectionObserverEntry. |
+| Name              | Type                              | Description                                                  |
+| ----------------- | --------------------------------- | ------------------------------------------------------------ |
+| intersectionEntry | IntersectionObserverEntry \| null | Represents the intersection details of the observed element. |
+
+### Example Code:
 
 ```javascript
-import { useCountDown } from 'react-custom-hooks-kit'
 
-const Component = () => {
-  const countDown = useCountDown(10, 200) // Start countdown from 10 with a delay of 200 ms.
+import { useIntersectionObserver } from react-custom-hooks-kit';
+import React, { useRef } from 'react';
+
+const IntersectionComponent = () => {
+  const targetRef = useRef(null);
+  const intersectionEntry = useIntersectionObserver(targetRef, {
+    threshold: 0.5,
+    root: null,
+    rootMargin: '0%',
+    stopOnceVisible: true
+  });
+
+  const isVisible = intersectionEntry?.isIntersecting;
 
   return (
     <div>
-      <p>Countdown: {countDown}</p>
+      <div
+        ref={targetRef}
+        style={{
+          height: '200px',
+          backgroundColor: isVisible ? 'yellow' : 'gray'
+        }}
+      >
+        {isVisible ? 'Element visible!' : 'Scroll to see me!'}
+      </div>
     </div>
+  );
+};
+
+
+const Component = () => {
+  return (
+    <main>
+      {Array.from({ length: 5 }).map((_, index) => (
+        <IntersectionComponent key={index + 1} />
+      ))}
+    </main>
   )
 }
+
 ```
 
 **[⬆ Back to Top](#table-of-contents)**
