@@ -9,7 +9,7 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kobir1989/react-custom-hooks-kit)
 ![Maintenance](https://img.shields.io/maintenance/yes/2023)
 
-### 'react-custom-hooks-kit' – modern, type-safe React hooks library. Simplify your development with reusable hooks designed to enhance productivity. Explore the documentation for easy-to-use guides and examples.
+### Modern, type-safe React hooks library. Simplify your development with reusable hooks designed to enhance productivity. Explore the documentation for easy-to-use guides and examples.
 
 ## Installation and Usage
 
@@ -19,8 +19,26 @@
 npm install react-custom-hooks-kit
 ```
 
-## 1. useFetch()
+<div id="table-of-contents"></div>
 
+### Table of Contents
+
+| No. | Hooks                                     |
+| --- | ----------------------------------------- |
+|     |                                           |
+| 1   | **[useFetch](#usefetch)**                 |
+| 2   | **[useLocalStorage](#useLocalStorage)**   |
+| 3   | **[useToggle](#useToggle)**               |
+| 4   | **[useForm](#useForm)**                   |
+| 5   | **[useScroll](#useScroll)**               |
+| 6   | **[useMediaQuery](#useMediaQuery)**       |
+| 7   | **[useMousePosition](#useMousePosition)** |
+| 8   | **[useWindowSize](#useWindowSize)**       |
+| 9   | **[useClickAway](#useClickAway)**         |
+| 10  | **[useCountDown](#useCountDown)**         |
+
+1. ## useFetch
+<div id="useFetch"></div>
 `useFetch` custom React hook designed to efficiently fetch and cache data based on a provided URL. It manages state for loading, error handling, and data retrieval, ensuring a seamless data-fetching experience.
 
 ### PARAMETERS
@@ -64,7 +82,8 @@ const Component = () => {
 }
 ```
 
-## 2. useLocalStorage()
+2. ## useLocalStorage
+<div id="useLocalStorage"></div>
 
 `useLocalStorage` custom React hook that facilitates storing, retrieving, and synchronizing data with the browser's localStorage API.
 
@@ -100,8 +119,8 @@ const Component = () => {
 }
 ```
 
-## 3. useToggle()
-
+3. ## useToggle
+<div id="useToggle"></div>
 `useToggle` custom React hook usefull for managing boolean state toggling. This hook simplifies the process of toggling between true and false values by providing an easy-to-use interface with a state value and a function for toggling the state.
 
 ### PARAMETERS
@@ -132,8 +151,8 @@ const ToggleButton = () => {
 }
 ```
 
-## 4. useForm()
-
+4. ### useForm
+<div id="useForm"></div>
 `useForm` custom React hook usefull for effortlessly managing form state, handling input changes, and form submissions. This hook provides handlers for `onChange` and `onSubmit` events, enabling seamless form interactions. It includes features for input validation and error handling.
 
 ### PARAMETERS
@@ -202,8 +221,8 @@ const Form = () => {
 }
 ```
 
-## 5. useScroll()
-
+5. ## useScroll
+<div id="useScroll"></div>
 `useScroll` custom React hook usefull for track and manage the scroll position within application. `useScroll` monitors scroll events, providing real-time updates on the current scroll position. By utilizing useState and useEffect, it offers a simple and effective way to keep track of scrolling activities.
 
 ### RETURNS
@@ -228,8 +247,8 @@ const Component = () => {
 }
 ```
 
-## 6. useMediaQuery()
-
+6. ## useMediaQuery
+<div id="useMediaQuery"></div>
 `useMediaQuery` custom React hook that dynamically responds to changes in the viewport based on specified media queries. This hook efficiently tracks viewport adjustments, providing a boolean value to reflect whether the current viewport matches the provided query.
 
 ### PARAMETERS
@@ -262,8 +281,8 @@ const Component = () => {
 }
 ```
 
-## 7. useMousePosition()
-
+7. ## useMousePosition
+<div id="useMousePosition"></div>
 `useMousePosition` custom React hook designed to provide real-time tracking of the mouse position within a specified HTML element. This hook returns the current mouse coordinates (x and y), allowing for dynamic interactions based on mouse movements.
 
 ### PARAMETERS
@@ -299,8 +318,8 @@ const Component = () => {
 }
 ```
 
-## 8. useWindowSize()
-
+8. ## useWindowSize
+<div id="useWindowSize"></div>
 `useWindowSize` custom React hook usefull for tracking and retrieving the dimensions of the browser window. This hook returns the current width and height of the window, enabling dynamic responsiveness to changes in the viewport size.
 
 ### RETURNS
@@ -325,8 +344,8 @@ const WindowSizeComponent = () => {
 }
 ```
 
-## 9. useClickAway()
-
+9. ## useClickAway
+<div id="useClickAway"></div>
 `useClickAway` custom React hook designed to detect clicks outside of a specified HTML element. This hook facilitates the monitoring of clicks beyond the targeted element, triggering a callback when such clicks occur. It provides functions to enable and disable click-away detection, allowing for dynamic control over the click detection behavior.
 
 ### PARAMETERS
@@ -372,8 +391,8 @@ const Component = () => {
 }
 ```
 
-## 10. useCountDown()
-
+10. ## useCountDown
+<div id="useCountDown"></div>
 `useCountDown` custom React hook designed to implement a countdown timer functionality. This hook initializes a countdown from a specified count value and updates the count at a defined delay interval. It returns the current count value.
 
 ### PARAMETERS
@@ -402,3 +421,37 @@ const Component = () => {
   )
 }
 ```
+
+10. ## useIntersectionObserver
+<div id="useIntersectionObserver"></div>
+
+`useIntersectionObserver` custom Hook that determines if a component is visible on your screen. It relies on the IntersectionObserver API, which is already available in your browser. This hook comes in handy for tasks such as loading images when they come into view, creating endless scrolling on pages, or triggering animations.
+
+### PARAMETERS
+
+| Name    | Type             | Description                                                        |
+| ------- | ---------------- | ------------------------------------------------------------------ |
+| ref     | MutableRefObject |                                                                    |
+| options | object           | option object such as threshold, root, rootMargin, stopOnceVisible |
+
+### RETURNS
+
+| Name  | Type   | Description                                                                                                |
+| ----- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| entry | object | object containing information about the intersection. This object is similar to IntersectionObserverEntry. |
+
+```javascript
+import { useCountDown } from 'react-custom-hooks-kit'
+
+const Component = () => {
+  const countDown = useCountDown(10, 200) // Start countdown from 10 with a delay of 200 ms.
+
+  return (
+    <div>
+      <p>Countdown: {countDown}</p>
+    </div>
+  )
+}
+```
+
+**[⬆ Back to Top](#table-of-contents)**

@@ -8,6 +8,7 @@ import useToggle from './hooks/useToggle'
 import useClickAway from './hooks/useClickAway'
 import useMousePosition from './hooks/useMousePosition'
 import useCountDown from './hooks/useCountDown'
+import useIntersectionObserver from './hooks/useIntersectionObserver'
 
 export {
   useFetch,
@@ -19,5 +20,6 @@ export {
   useToggle,
   useClickAway,
   useMousePosition,
-  useCountDown
+  useCountDown,
+  useIntersectionObserver
 }
