@@ -1,6 +1,6 @@
 {
   "name": "react-custom-hooks-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Custom Hooks with TypeScript offers essential, type-safe hooks crafted for smoother React development.",
   "homepage": "https://github.com/kobir1989/react-custom-hooks-kit",
   "repository": {
@@ -35,7 +35,8 @@
     "useClickAway",
     "useMouse",
     "useToggle",
-    "useCountDown"
+    "useCountDown",
+    "useIntersectionObserver"
   ],
   "author": "Kabir Hossain",
   "license": "MIT",
