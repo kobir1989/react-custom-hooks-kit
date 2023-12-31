@@ -15,8 +15,15 @@
 
 ### Install:
 
+#### npm
+
 ```shell
 npm install react-custom-hooks-kit
+```
+#### Yarn
+
+```shell
+yarn add react-custom-hooks-kit
 ```
 
 <div id="table-of-contents"></div>
