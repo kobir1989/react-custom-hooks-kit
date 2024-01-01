@@ -47,6 +47,7 @@ yarn add react-custom-hooks-kit
 
 1. ## useFetch
 <div id="useFetch"></div>
+
 `useFetch` custom React hook designed to efficiently fetch and cache data based on a provided URL. It manages state for loading, error handling, and data retrieval, ensuring a seamless data-fetching experience.
 
 ### PARAMETERS
