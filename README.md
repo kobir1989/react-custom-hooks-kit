@@ -1,13 +1,13 @@
 # react-custom-hooks-kit
 
-![npm version](https://img.shields.io/badge/npm-v1.0.0-blue)
+![npm version](https://img.shields.io/badge/npm-v1.0.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Downloads](https://img.shields.io/npm/dt/react-custom-hooks-kit)
 ![GitHub stars](https://img.shields.io/github/stars/kobir1989/react-custom-hooks-kit)
 ![GitHub forks](https://img.shields.io/github/forks/kobir1989/react-custom-hooks-kit)
 ![GitHub issues](https://img.shields.io/github/issues/kobir1989/react-custom-hooks-kit)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/kobir1989/react-custom-hooks-kit)
-![Maintenance](https://img.shields.io/maintenance/yes/2023)
+![Maintenance](https://img.shields.io/maintenance/yes/2024)
 
 ### Modern, type-safe React hooks library. Simplify your development with reusable hooks designed to enhance productivity. Explore the documentation for easy-to-use guides and examples.
 
